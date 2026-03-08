@@ -2,6 +2,11 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
+  const handleMailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open("mailto:sainaveen7691@gmail.com", "_blank");
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
       {/* Mesh gradient background */}
@@ -64,12 +69,20 @@ const HeroSection = () => {
         >
           <a
             href="#contact"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="group relative bg-gradient-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-xl hover:shadow-glow transition-all duration-300 text-sm"
           >
             Let's Work Together
           </a>
           <a
             href="#projects"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+            }}
             className="group border border-border text-foreground font-semibold px-8 py-3.5 rounded-xl hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 text-sm"
           >
             View Projects
@@ -92,6 +105,7 @@ const HeroSection = () => {
               href={href}
               target={href.startsWith("http") ? "_blank" : undefined}
               rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+              onClick={label === "Email" ? handleMailClick : undefined}
               className="group flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors duration-300"
             >
               <Icon size={18} />
@@ -104,6 +118,10 @@ const HeroSection = () => {
       {/* Scroll indicator */}
       <motion.a
         href="#about"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+        }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}

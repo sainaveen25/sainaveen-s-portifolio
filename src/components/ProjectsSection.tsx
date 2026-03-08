@@ -1,50 +1,51 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Github, ExternalLink, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    title: "Full-Stack Task Management App",
-    description:
-      "A secure, full-stack task management application with role-based access control (RBAC), JWT authentication, and a modern responsive UI.",
-    tech: ["NestJS", "Angular", "TypeORM", "JWT", "RBAC", "TypeScript"],
-    github: "https://github.com/sainaveen25/Full-stack-Task-management-application",
-    featured: true,
-  },
-  {
-    title: "Electric Vehicles Website",
-    description:
-      "An interactive website showcasing electric vehicles with modern design, responsive layouts, and dynamic content presentation.",
-    tech: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-    github: "https://github.com/sainaveen25/-Electric-Vehicles-website",
-    featured: true,
-  },
-  {
     title: "Banking Microservices Platform",
     description:
-      "Enterprise-grade banking microservices handling 500K+ daily transactions with Kafka event-driven messaging on AWS EKS.",
-    tech: ["Java 17", "Spring Boot", "Kafka", "AWS EKS", "PostgreSQL", "Docker"],
-    featured: false,
+      "Enterprise-grade banking microservices architecture handling 500K+ daily transactions with event-driven messaging, real-time processing, and high-availability deployment on AWS EKS.",
+    tech: ["Java 17", "Spring Boot", "Kafka", "AWS EKS", "PostgreSQL", "Docker", "Kubernetes"],
+    github: "https://github.com/sainaveen25",
+    featured: true,
+  },
+  {
+    title: "E-Commerce Full Stack Application",
+    description:
+      "Scalable e-commerce platform with product catalog, order management, payment integration, and real-time inventory tracking built with microservices architecture.",
+    tech: ["Java 11", "Spring Boot", "React 18", "PostgreSQL", "Redis", "REST APIs", "Docker"],
+    github: "https://github.com/sainaveen25",
+    featured: true,
   },
   {
     title: "CRM Modernization Suite",
     description:
-      "Monolith-to-microservices CRM transformation delivering 20+ APIs for 50K daily active users with 99.99% availability.",
-    tech: ["Java 11", "Spring Boot", "Angular 8", "AWS", "PostgreSQL", "Redis"],
+      "Monolith-to-microservices CRM transformation delivering 20+ RESTful APIs for 50K daily active users with 99.99% availability and optimized Angular dashboards.",
+    tech: ["Java 11", "Spring Boot", "Angular 8", "AWS", "PostgreSQL", "Redis", "Kafka"],
+    featured: false,
+  },
+  {
+    title: "CI/CD & Deployment Automation",
+    description:
+      "End-to-end CI/CD pipelines with automated testing, containerized deployments, and infrastructure-as-code achieving 45% reduction in production failures.",
+    tech: ["Jenkins", "GitHub Actions", "Docker", "Kubernetes", "Terraform", "SonarQube"],
     featured: false,
   },
   {
     title: "Real-Time Data Pipeline",
     description:
-      "High-volume data processing pipeline using Apache Kafka for notification streams and data synchronization across distributed systems.",
-    tech: ["Apache Kafka", "Spring Cloud", "Docker", "ELK Stack", "AWS Lambda"],
+      "High-volume data processing pipeline using Apache Kafka for notification streams and data synchronization across distributed banking systems.",
+    tech: ["Apache Kafka", "Spring Cloud", "AWS Lambda", "ELK Stack", "Docker"],
     featured: false,
   },
   {
-    title: "CI/CD Automation Framework",
+    title: "Task Management App",
     description:
-      "Comprehensive CI/CD pipelines achieving 45% reduction in production failures through automated testing and deployment.",
-    tech: ["Jenkins", "GitHub Actions", "Docker", "K8s", "Terraform", "SonarQube"],
+      "Full-stack task management application with role-based access control, JWT authentication, and responsive UI for team collaboration.",
+    tech: ["NestJS", "Angular", "TypeORM", "JWT", "RBAC", "TypeScript"],
+    github: "https://github.com/sainaveen25/Full-stack-Task-management-application",
     featured: false,
   },
 ];
@@ -69,7 +70,7 @@ const ProjectsSection = () => {
           </h2>
         </motion.div>
 
-        {/* Featured projects - larger cards */}
+        {/* Featured projects */}
         <div className="grid md:grid-cols-2 gap-5 mb-5">
           {projects.filter(p => p.featured).map((project, i) => (
             <motion.a
