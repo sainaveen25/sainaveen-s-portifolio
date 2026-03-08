@@ -6,6 +6,11 @@ const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
+  const handleMailClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.open("mailto:sainaveen7691@gmail.com", "_blank");
+  };
+
   return (
     <section id="contact" className="py-32 px-6 relative" ref={ref}>
       <div className="absolute inset-0 bg-mesh opacity-40" />
@@ -31,7 +36,7 @@ const ContactSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="grid sm:grid-cols-3 gap-4 mb-14"
         >
-          <a href="mailto:sainaveen7691@gmail.com" className="bento-card group text-center">
+          <a href="mailto:sainaveen7691@gmail.com" onClick={handleMailClick} className="bento-card group text-center">
             <Mail className="text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" size={22} />
             <p className="text-sm font-medium text-foreground">Email</p>
             <p className="text-xs text-muted-foreground mt-1">sainaveen7691@gmail.com</p>
@@ -54,11 +59,13 @@ const ContactSection = () => {
           transition={{ delay: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-4"
         >
-          <a href="mailto:sainaveen7691@gmail.com"
-            className="group inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-semibold text-sm px-8 py-3.5 rounded-xl hover:shadow-glow transition-all duration-300">
+          <button
+            onClick={handleMailClick}
+            className="group inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-semibold text-sm px-8 py-3.5 rounded-xl hover:shadow-glow transition-all duration-300"
+          >
             <Mail size={16} /> Say Hello
             <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
+          </button>
           <a href="https://github.com/sainaveen25" target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 border border-border text-foreground font-semibold text-sm px-6 py-3.5 rounded-xl hover:border-primary/40 hover:bg-primary/5 transition-all duration-300">
             <Github size={16} /> GitHub
