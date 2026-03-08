@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, MapPin } from "lucide-react";
 
 const education = [
   {
@@ -8,12 +8,14 @@ const education = [
     degree: "Master of Science",
     major: "Computer System Analysis",
     location: "Tampa, FL",
+    gradient: "text-gradient",
   },
   {
     school: "SRM Institute of Science and Technology",
     degree: "Bachelor of Technology",
     major: "Electronics & Communication Engineering",
     location: "Chennai, India",
+    gradient: "text-gradient-accent",
   },
 ];
 
@@ -22,15 +24,16 @@ const EducationSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="education" className="py-24 px-6" ref={ref}>
+    <section id="education" className="py-32 px-6" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
+          className="mb-16"
         >
-          <p className="font-mono text-primary text-sm mb-2">{"// Education"}</p>
-          <h2 className="text-3xl md:text-4xl font-bold font-mono mb-12 text-foreground">
+          <span className="text-primary text-sm font-mono tracking-wider uppercase">Education</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-3 text-foreground">
             Academic <span className="text-gradient">Background</span>
           </h2>
         </motion.div>
@@ -42,13 +45,18 @@ const EducationSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="bg-card border border-border rounded-lg p-6 hover:border-primary/20 transition-colors shadow-card"
+              className="bento-card group"
             >
-              <GraduationCap className="text-primary mb-4" size={28} />
-              <h3 className="font-mono text-lg font-semibold text-foreground">{edu.degree}</h3>
-              <p className="text-primary font-mono text-sm mt-1">{edu.school}</p>
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors duration-300">
+                <GraduationCap className="text-primary" size={22} />
+              </div>
+              <h3 className={`text-2xl font-bold ${edu.gradient}`}>{edu.degree}</h3>
+              <p className="text-foreground font-medium mt-2">{edu.school}</p>
               <p className="text-sm text-muted-foreground mt-2">{edu.major}</p>
-              <p className="text-xs text-muted-foreground mt-1">{edu.location}</p>
+              <div className="flex items-center gap-1.5 mt-3 text-xs text-muted-foreground">
+                <MapPin size={12} />
+                {edu.location}
+              </div>
             </motion.div>
           ))}
         </div>

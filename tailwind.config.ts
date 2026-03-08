@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        mono: ["'JetBrains Mono'", "monospace"],
-        sans: ["'Inter'", "sans-serif"],
+        display: ["'Space Grotesk'", "sans-serif"],
+        mono: ["'Space Mono'", "monospace"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -76,15 +76,38 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "float": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
         "pulse-glow": {
-          "0%, 100%": { opacity: "0.4" },
-          "50%": { opacity: "1" },
+          "0%, 100%": { opacity: "0.3" },
+          "50%": { opacity: "0.8" },
+        },
+        "slide-up": {
+          from: { opacity: "0", transform: "translateY(20px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "grain": {
+          "0%, 100%": { transform: "translate(0, 0)" },
+          "10%": { transform: "translate(-5%, -10%)" },
+          "20%": { transform: "translate(-15%, 5%)" },
+          "30%": { transform: "translate(7%, -25%)" },
+          "40%": { transform: "translate(-5%, 25%)" },
+          "50%": { transform: "translate(-15%, 10%)" },
+          "60%": { transform: "translate(15%, 0%)" },
+          "70%": { transform: "translate(0%, 15%)" },
+          "80%": { transform: "translate(3%, 35%)" },
+          "90%": { transform: "translate(-10%, 10%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "pulse-glow": "pulse-glow 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
+        "pulse-glow": "pulse-glow 4s ease-in-out infinite",
+        "slide-up": "slide-up 0.6s ease-out",
+        "grain": "grain 8s steps(10) infinite",
       },
     },
   },
