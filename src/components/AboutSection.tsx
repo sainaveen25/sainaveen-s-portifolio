@@ -1,12 +1,12 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Zap, Globe, Shield, TrendingUp } from "lucide-react";
 
 const stats = [
-  { value: "7+", label: "Years Experience" },
-  { value: "20+", label: "APIs Delivered" },
-  { value: "15+", label: "Services Migrated" },
-  { value: "95%", label: "Test Coverage" },
+  { value: "7+", label: "Years Experience", icon: Zap },
+  { value: "20+", label: "APIs Delivered", icon: Globe },
+  { value: "15+", label: "Services Migrated", icon: TrendingUp },
+  { value: "95%", label: "Test Coverage", icon: Shield },
 ];
 
 const AboutSection = () => {
@@ -14,57 +14,61 @@ const AboutSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-24 px-6" ref={ref}>
+    <section id="about" className="py-32 px-6 relative" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.7 }}
+          className="mb-16"
         >
-          <p className="font-mono text-primary text-sm mb-2">{"// About Me"}</p>
-          <h2 className="text-3xl md:text-4xl font-bold font-mono mb-8 text-foreground">
-            Who I <span className="text-gradient">Am</span>
+          <span className="text-primary text-sm font-mono tracking-wider uppercase">About</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-3 text-foreground leading-tight">
+            Building software that<br />
+            <span className="text-gradient">scales to millions</span>
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-5 gap-8">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4"
+            className="lg:col-span-3 space-y-5"
           >
-            <p className="text-muted-foreground leading-relaxed">
-              Skilled Full Stack Developer with deep expertise in Java technologies, Spring Boot, 
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Full Stack Developer with deep expertise in Java technologies, Spring Boot, 
               Microservices, and modern frontend frameworks. I specialize in designing scalable, 
-              secure enterprise applications for industries including banking and CRM.
+              secure enterprise applications for banking and CRM industries.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               From architecting distributed systems at RBC Bank to leading cloud migrations at 
               Infosys, I bring a track record of improving performance, reducing costs, and 
-              mentoring teams. I'm passionate about clean code, DevOps automation, and 
-              leveraging cloud-native technologies.
+              mentoring teams. Passionate about clean code, DevOps automation, and cloud-native technologies.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Master's degree from University of South Florida (Computer System Analysis) and 
-              B.Tech from SRM Institute (ECE). Currently based in Tampa, FL and open to new opportunities.
+              Master's from University of South Florida · B.Tech from SRM Institute · Tampa, FL
             </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="grid grid-cols-2 gap-4"
+            className="lg:col-span-2 grid grid-cols-2 gap-4"
           >
             {stats.map((stat, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-card border border-border rounded-lg p-6 text-center hover:border-primary/30 transition-colors shadow-card"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
+                className="bento-card text-center group"
               >
-                <p className="text-3xl font-bold font-mono text-gradient">{stat.value}</p>
-                <p className="text-sm text-muted-foreground mt-1">{stat.label}</p>
-              </div>
+                <stat.icon className="text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" size={20} />
+                <p className="text-3xl font-bold text-gradient">{stat.value}</p>
+                <p className="text-xs text-muted-foreground mt-1.5">{stat.label}</p>
+              </motion.div>
             ))}
           </motion.div>
         </div>
