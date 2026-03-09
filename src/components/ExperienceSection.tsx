@@ -8,14 +8,18 @@ const experiences = [
     period: "Nov 2024 – Present",
     location: "Remote (Contract)",
     highlights: [
-      "Architected scalable banking microservices using Java 17, Spring Boot & Hibernate JPA",
-      "Migrated 15+ legacy services to modern Spring Boot, enhancing throughput by 25%",
-      "Directed React 18 & Angular 15 frontend for high-traffic banking platforms",
-      "Established Kafka event-driven patterns processing 500K+ daily transaction events",
-      "Managed CI/CD via Jenkins & GitHub Actions, cutting production failures by 45%",
-      "Leveraged AWS Lambda & S3, reducing infrastructure costs by 22%",
+      "Architected secure, scalable banking microservices using Java 17, Spring Boot & Hibernate JPA for distributed financial systems",
+      "Migrated 15+ legacy services to modern Spring Boot architecture, boosting transactional throughput by 25%",
+      "Orchestrated Docker & Kubernetes containerization, cutting deployment cycle times by 30%",
+      "Directed React 18 & Angular 15 frontend development for high-traffic banking platforms with Redux Toolkit & TypeScript",
+      "Established Kafka event-driven messaging processing 500K+ daily transaction events",
+      "Implemented Spring Security, JWT & OAuth2 authentication ensuring 100% banking security compliance",
+      "Optimized PostgreSQL & Oracle schemas reducing query latency by 40% for high-volume workflows",
+      "Managed full-lifecycle CI/CD via Jenkins & GitHub Actions, cutting production failures by 45%",
+      "Leveraged AWS Lambda, S3 & EKS, reducing infrastructure costs by 22%",
+      "Deployed Terraform for infrastructure-as-code consistency across dev and prod environments",
     ],
-    tech: ["Java 17", "Spring Boot", "React 18", "Angular 15", "Kafka", "AWS", "PostgreSQL", "MongoDB", "Docker", "K8s"],
+    tech: ["Java 17", "Spring Boot", "React 18", "Angular 15", "Kafka", "AWS EKS", "PostgreSQL", "MongoDB", "Docker", "K8s", "Terraform"],
     accent: "primary",
   },
   {
@@ -24,13 +28,16 @@ const experiences = [
     period: "Jul 2021 – Aug 2023",
     location: "India",
     highlights: [
-      "Led CRM monolith-to-microservices transformation with Java 11 & Spring Boot 2.x",
-      "Delivered 20+ RESTful APIs supporting 50K daily active users",
-      "Improved Angular dashboard load times by 35% with reactive patterns",
-      "Achieved 99.99% availability for mission-critical AWS applications",
-      "Automated CI/CD with Jenkins & GitLab CI, reducing manual deployment by 50%",
+      "Led CRM monolith-to-microservices transformation using Java 11, Spring Boot 2.x & Spring MVC",
+      "Delivered 20+ RESTful APIs supporting 50K daily active users with secure RBAC & JWT authentication",
+      "Improved Angular 8 dashboard load times by 35% through RxJS reactive programming patterns",
+      "Directed AWS cloud migration achieving 99.99% system availability for mission-critical applications",
+      "Automated CI/CD pipelines with Jenkins & GitLab CI, reducing manual deployment by 50%",
+      "Orchestrated real-time data processing using Apache Kafka for notification streams & data sync",
+      "Designed ELK Stack & CloudWatch monitoring dashboards reducing MTTR by 20 minutes",
+      "Managed containerized deployments using Docker & AWS ECS with CloudFormation provisioning",
     ],
-    tech: ["Java 11", "Spring Boot", "Angular 8", "PostgreSQL", "Kafka", "AWS", "Docker", "Jenkins"],
+    tech: ["Java 11", "Spring Boot", "Angular 8", "RxJS", "PostgreSQL", "Kafka", "AWS ECS", "Docker", "Jenkins", "ELK Stack"],
     accent: "accent",
   },
   {
@@ -39,12 +46,14 @@ const experiences = [
     period: "Jul 2018 – Jul 2021",
     location: "India",
     highlights: [
-      "Built backend modules for automated order tracking & inventory management",
-      "Developed REST/SOAP APIs with 99% data accuracy for shipment tracking",
-      "Implemented CI/CD with Jenkins & Docker, reducing release cycles by 30%",
-      "Optimized MySQL schemas, improving data retrieval by 25%",
+      "Built backend modules using Core Java, JSP & Servlets for automated order tracking & inventory management",
+      "Developed REST & SOAP APIs with 99% data accuracy for third-party shipment tracking integrations",
+      "Spearheaded CI/CD pipelines with Jenkins & Docker, reducing release cycles by 30%",
+      "Designed & optimized MySQL schemas, improving data retrieval times by 25%",
+      "Implemented Multithreading & Spring MVC controllers for efficient web request handling",
+      "Achieved 80% code coverage through JUnit testing across primary application suite",
     ],
-    tech: ["Java 8", "Spring MVC", "Hibernate", "MySQL", "REST APIs", "Jenkins", "Docker"],
+    tech: ["Java 8", "Spring MVC", "Hibernate", "MySQL", "REST APIs", "SOAP", "Jenkins", "Docker", "JUnit", "Apache Tomcat"],
     accent: "primary",
   },
 ];
@@ -77,7 +86,6 @@ const ExperienceSection = () => {
               transition={{ duration: 0.5, delay: i * 0.15 }}
               className="bento-card group relative overflow-hidden"
             >
-              {/* Subtle left accent bar */}
               <div className={`absolute left-0 top-0 bottom-0 w-1 ${exp.accent === 'accent' ? 'bg-accent' : 'bg-primary'} opacity-60 rounded-l-2xl`} />
               
               <div className="pl-4">
