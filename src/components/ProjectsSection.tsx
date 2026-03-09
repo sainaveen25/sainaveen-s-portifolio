@@ -1,51 +1,66 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Github, ArrowUpRight } from "lucide-react";
+import { Github, ArrowUpRight, Building2, ShoppingCart, Users, Rocket, Database, CheckSquare, Zap } from "lucide-react";
 
 const projects = [
   {
     title: "Banking Microservices Platform",
     description:
-      "Enterprise-grade banking microservices architecture handling 500K+ daily transactions with event-driven messaging, real-time processing, and high-availability deployment on AWS EKS.",
-    tech: ["Java 17", "Spring Boot", "Kafka", "AWS EKS", "PostgreSQL", "Docker", "Kubernetes"],
+      "Architected and deployed enterprise-grade banking microservices handling 500K+ daily transactions with event-driven Kafka messaging, containerized deployments on AWS EKS, and zero-downtime releases through Terraform IaC.",
+    tech: ["Java 17", "Spring Boot", "Kafka", "AWS EKS", "PostgreSQL", "Docker", "Kubernetes", "Terraform", "React 18"],
+    icon: Building2,
     github: "https://github.com/sainaveen25",
     featured: true,
   },
   {
     title: "E-Commerce Full Stack Application",
     description:
-      "Scalable e-commerce platform with product catalog, order management, payment integration, and real-time inventory tracking built with microservices architecture.",
-    tech: ["Java 11", "Spring Boot", "React 18", "PostgreSQL", "Redis", "REST APIs", "Docker"],
+      "Scalable e-commerce platform with product catalog, order management, payment processing, and real-time inventory tracking — built with microservices architecture, Redis caching, and React 18 frontend with Redux state management.",
+    tech: ["Java 11", "Spring Boot", "React 18", "Redux Toolkit", "PostgreSQL", "Redis", "REST APIs", "Docker", "AWS"],
+    icon: ShoppingCart,
     github: "https://github.com/sainaveen25",
     featured: true,
   },
   {
     title: "CRM Modernization Suite",
     description:
-      "Monolith-to-microservices CRM transformation delivering 20+ RESTful APIs for 50K daily active users with 99.99% availability and optimized Angular dashboards.",
-    tech: ["Java 11", "Spring Boot", "Angular 8", "AWS", "PostgreSQL", "Redis", "Kafka"],
+      "Led monolith-to-microservices transformation of enterprise CRM supporting 50K daily active users. Delivered 20+ RESTful APIs, reactive Angular dashboards with 35% faster load times, and 99.99% system availability on AWS.",
+    tech: ["Java 11", "Spring Boot", "Angular 8", "RxJS", "PostgreSQL", "Kafka", "AWS ECS", "Jenkins"],
+    icon: Users,
     featured: false,
   },
   {
     title: "CI/CD & Deployment Automation",
     description:
-      "End-to-end CI/CD pipelines with automated testing, containerized deployments, and infrastructure-as-code achieving 45% reduction in production failures.",
-    tech: ["Jenkins", "GitHub Actions", "Docker", "Kubernetes", "Terraform", "SonarQube"],
+      "End-to-end CI/CD pipelines with Jenkins, GitHub Actions, Docker containerization, and Kubernetes orchestration — achieving 45% fewer production failures and 30% faster release cycles through infrastructure-as-code.",
+    tech: ["Jenkins", "GitHub Actions", "Docker", "Kubernetes", "Terraform", "SonarQube", "AWS CloudFormation"],
+    icon: Rocket,
     featured: false,
   },
   {
     title: "Real-Time Data Pipeline",
     description:
-      "High-volume data processing pipeline using Apache Kafka for notification streams and data synchronization across distributed banking systems.",
-    tech: ["Apache Kafka", "Spring Cloud", "AWS Lambda", "ELK Stack", "Docker"],
+      "High-volume event streaming pipeline using Apache Kafka for real-time transaction processing, notification delivery, and data synchronization across distributed banking systems with ELK Stack monitoring.",
+    tech: ["Apache Kafka", "Spring Cloud", "AWS Lambda", "ELK Stack", "Prometheus", "Grafana"],
+    icon: Database,
     featured: false,
   },
   {
     title: "Task Management App",
     description:
-      "Full-stack task management application with role-based access control, JWT authentication, and responsive UI for team collaboration.",
+      "Full-stack task management application with role-based access control (RBAC), JWT authentication, responsive Angular UI, and NestJS backend with TypeORM for team collaboration.",
     tech: ["NestJS", "Angular", "TypeORM", "JWT", "RBAC", "TypeScript"],
+    icon: CheckSquare,
     github: "https://github.com/sainaveen25/Full-stack-Task-management-application",
+    featured: false,
+  },
+  {
+    title: "Electric Vehicles Website",
+    description:
+      "Interactive web application showcasing electric vehicle data with clean UI, responsive layouts, and dynamic content rendering for an engaging user experience.",
+    tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    icon: Zap,
+    github: "https://github.com/sainaveen25/-Electric-Vehicles-website",
     featured: false,
   },
 ];
@@ -86,7 +101,12 @@ const ProjectsSection = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[60px] group-hover:bg-primary/10 transition-all duration-500" />
               <div className="relative">
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-lg">Featured</span>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <project.icon className="text-primary" size={16} />
+                    </div>
+                    <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-lg">Featured</span>
+                  </div>
                   <ArrowUpRight className="text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" size={18} />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
@@ -107,8 +127,8 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* Other projects - compact grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
+        {/* Other projects */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {projects.filter(p => !p.featured).map((project, i) => (
             <motion.div
               key={i}
@@ -117,22 +137,39 @@ const ProjectsSection = () => {
               transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
               className="bento-card group flex flex-col"
             >
-              <h3 className="text-sm font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
-                {project.title}
-              </h3>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                  <project.icon className="text-primary" size={14} />
+                </div>
+                <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                  {project.title}
+                </h3>
+              </div>
               <p className="text-xs text-muted-foreground mb-4 flex-1 leading-relaxed">
                 {project.description}
               </p>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tech.slice(0, 3).map((t) => (
-                  <span key={t} className="text-[10px] font-mono text-muted-foreground">
+              <div className="flex flex-wrap gap-1.5 mb-3">
+                {project.tech.slice(0, 4).map((t) => (
+                  <span key={t} className="text-[10px] font-mono bg-secondary/60 text-secondary-foreground px-2 py-0.5 rounded">
                     {t}
                   </span>
                 ))}
-                {project.tech.length > 3 && (
-                  <span className="text-[10px] font-mono text-muted-foreground">+{project.tech.length - 3}</span>
+                {project.tech.length > 4 && (
+                  <span className="text-[10px] font-mono text-muted-foreground">+{project.tech.length - 4}</span>
                 )}
               </div>
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors mt-auto"
+                >
+                  <Github size={12} />
+                  View on GitHub
+                  <ArrowUpRight size={10} />
+                </a>
+              )}
             </motion.div>
           ))}
         </div>

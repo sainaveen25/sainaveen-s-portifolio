@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ArrowDown } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, Sparkles } from "lucide-react";
 
 const HeroSection = () => {
   const handleMailClick = (e: React.MouseEvent) => {
@@ -47,10 +47,15 @@ const HeroSection = () => {
             <span className="text-gradient">Naveen</span>
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-6 leading-relaxed font-light">
-            Full Stack Developer crafting enterprise-grade applications with{" "}
-            <span className="text-foreground font-medium">7+ years</span> of expertise in
-            Java, Spring Boot, React & Cloud Architecture.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed font-light">
+            I don't just write code — I engineer systems that power{" "}
+            <span className="text-foreground font-medium">real-world enterprises</span>. 
+            From banking platforms handling half a million daily transactions to cloud-native 
+            architectures that never sleep.
+          </p>
+          <p className="text-base text-muted-foreground max-w-xl mx-auto mb-6 leading-relaxed">
+            <span className="text-foreground font-medium">7+ years</span> deep in Java, Spring Boot, React & AWS — 
+            turning complex problems into elegant, scalable solutions.
           </p>
 
           <div className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground mb-12">
@@ -73,8 +78,9 @@ const HeroSection = () => {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group relative bg-gradient-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-xl hover:shadow-glow transition-all duration-300 text-sm"
+            className="group relative inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-xl hover:shadow-glow transition-all duration-300 text-sm"
           >
+            <Sparkles size={16} />
             Let's Work Together
           </a>
           <a

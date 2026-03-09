@@ -37,17 +37,19 @@ const AboutSection = () => {
             className="lg:col-span-3 space-y-5"
           >
             <p className="text-muted-foreground text-lg leading-relaxed">
-              Full Stack Developer with deep expertise in Java technologies, Spring Boot, 
-              Microservices, and modern frontend frameworks. I specialize in designing scalable, 
-              secure enterprise applications for banking and CRM industries.
+              I'm a Full Stack Developer who thrives at the intersection of complex backend systems and 
+              intuitive user experiences. With deep expertise across Java, Spring Boot, Microservices, 
+              and modern frontend frameworks, I build enterprise applications that are not just functional — 
+              they're resilient, performant, and built to last.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              From architecting distributed systems at RBC Bank to leading cloud migrations at 
-              Infosys, I bring a track record of improving performance, reducing costs, and 
-              mentoring teams. Passionate about clean code, DevOps automation, and cloud-native technologies.
+              From architecting distributed banking systems at RBC Bank to leading cloud-native CRM 
+              transformations at Infosys, I've consistently delivered solutions that reduce costs, 
+              accelerate deployments, and empower teams. I'm passionate about clean architecture, 
+              DevOps automation, and the craft of writing code that other developers enjoy working with.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Master's from University of South Florida · B.Tech from SRM Institute · Tampa, FL
+              Master's in Computer System Analysis from University of South Florida · B.Tech from SRM Institute · Based in Tampa, FL
             </p>
           </motion.div>
 

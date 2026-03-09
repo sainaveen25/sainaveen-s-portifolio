@@ -1,43 +1,67 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Code2, Server, Layout, Cloud, Database, Lock } from "lucide-react";
+import { Code2, Server, Layout, Cloud, Database, Lock, Wrench, TestTube, Workflow, Globe } from "lucide-react";
 
 const skillCategories = [
   {
     title: "Languages",
     icon: Code2,
-    skills: ["Java (8,11,17,21)", "Python", "SQL", "PL/SQL", "TypeScript", "JavaScript"],
+    skills: ["Java (8, 11, 17, 21)", "J2EE", "Python", "SQL", "PL/SQL", "TypeScript", "JavaScript"],
     gradient: "text-gradient",
   },
   {
-    title: "Backend",
-    icon: Server,
-    skills: ["Spring Boot", "Spring MVC", "Spring Security", "Spring Cloud", "Hibernate", "JPA", "Microservices", "REST APIs", "GraphQL"],
+    title: "J2EE Technologies",
+    icon: Workflow,
+    skills: ["Multithreading", "JDBC", "Servlets", "JSP", "JMS", "Java Beans", "JSTL", "Struts", "JSF", "EJB", "JTA", "JNDI", "JPA"],
     gradient: "text-gradient-accent",
+  },
+  {
+    title: "Backend Frameworks",
+    icon: Server,
+    skills: ["Spring Boot 3.x", "Spring MVC", "Spring Security 6.x", "Spring Cloud", "Spring WebFlux", "Spring IOC", "Spring AOP", "Spring Data JPA", "Spring Batch", "Hibernate ORM"],
+    gradient: "text-gradient",
+  },
+  {
+    title: "Web Services",
+    icon: Globe,
+    skills: ["RESTful APIs", "SOAP", "GraphQL", "JMS", "SOA", "Microservices", "JAX-RS", "JAX-WS"],
+    gradient: "text-gradient-warm",
   },
   {
     title: "Frontend",
     icon: Layout,
-    skills: ["React 18", "Angular 14", "Redux Toolkit", "RxJS", "HTML5", "CSS3/SCSS", "Tailwind CSS", "Bootstrap"],
+    skills: ["React 18", "Redux Toolkit", "React Query", "Angular 14", "RxJS", "TypeScript", "HTML5", "CSS3/SCSS", "Tailwind CSS", "Bootstrap 5"],
     gradient: "text-gradient",
   },
   {
     title: "Cloud & DevOps",
     icon: Cloud,
-    skills: ["AWS (EC2, Lambda, S3, RDS, EKS)", "Docker", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "CI/CD"],
+    skills: ["AWS (EC2, Lambda, S3, RDS, EKS, SQS, SNS, API Gateway, CloudWatch, IAM)", "Azure DevOps", "GCP", "Docker", "Kubernetes", "Terraform", "Jenkins", "GitHub Actions", "GitLab CI/CD"],
     gradient: "text-gradient-warm",
   },
   {
     title: "Databases",
     icon: Database,
-    skills: ["PostgreSQL", "MySQL", "Oracle", "MongoDB", "Redis", "DynamoDB", "Cassandra"],
+    skills: ["PostgreSQL", "MySQL", "SQL Server", "Oracle", "MongoDB", "Redis", "Cassandra", "DynamoDB"],
     gradient: "text-gradient-accent",
   },
   {
-    title: "Tools & Security",
+    title: "Security",
     icon: Lock,
-    skills: ["Kafka", "ELK Stack", "Grafana", "OAuth 2.0", "JWT", "SonarQube", "JUnit", "Mockito"],
+    skills: ["OAuth 2.0", "OIDC", "JWT", "Keycloak", "Spring Security 6.x", "SAML", "RBAC", "SSL/TLS"],
+    gradient: "text-gradient",
+  },
+  {
+    title: "Observability",
+    icon: Wrench,
+    skills: ["ELK Stack", "Prometheus", "Grafana", "Splunk", "AWS CloudWatch", "Instana APM", "Datadog"],
     gradient: "text-gradient-warm",
+  },
+  {
+    title: "Testing & QA",
+    icon: TestTube,
+    skills: ["JUnit", "Mockito", "Cucumber (BDD)", "JMeter", "SonarQube", "Postman", "Swagger/OpenAPI", "REST Assured"],
+    gradient: "text-gradient-accent",
   },
 ];
 
@@ -67,7 +91,7 @@ const SkillsSection = () => {
               key={cat.title}
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+              transition={{ duration: 0.5, delay: i * 0.06 }}
               className="bento-card group"
             >
               <div className="flex items-center gap-3 mb-5">
