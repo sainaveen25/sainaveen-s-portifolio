@@ -9,19 +9,31 @@ const HeroSection = () => {
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
-      {/* Mesh gradient background */}
-      <div className="absolute inset-0 bg-mesh" />
-      
+      {/* Video background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+          style={{ filter: "brightness(0.3) saturate(1.2)" }}
+        >
+          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
+      </div>
+
       {/* Animated orbs */}
       <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px]"
+        className="absolute top-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px] z-[1]"
       />
       <motion.div
         animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[130px]"
+        className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[130px] z-[1]"
       />
 
       <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -35,7 +47,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
             <span className="text-sm text-primary font-medium">Available for opportunities</span>
@@ -46,15 +58,15 @@ const HeroSection = () => {
             <br />
             <span className="text-gradient">Naveen</span>
           </h1>
-          
+
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed font-light">
             I don't just write code — I engineer systems that power{" "}
-            <span className="text-foreground font-medium">real-world enterprises</span>. 
-            From banking platforms handling half a million daily transactions to cloud-native 
+            <span className="text-foreground font-medium">real-world enterprises</span>.
+            From banking platforms handling half a million daily transactions to cloud-native
             architectures that never sleep.
           </p>
           <p className="text-base text-muted-foreground max-w-xl mx-auto mb-6 leading-relaxed">
-            <span className="text-foreground font-medium">7+ years</span> deep in Java, Spring Boot, React & AWS — 
+            <span className="text-foreground font-medium">7+ years</span> deep in Java, Spring Boot, React & AWS —
             turning complex problems into elegant, scalable solutions.
           </p>
 
@@ -89,7 +101,7 @@ const HeroSection = () => {
               e.preventDefault();
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group border border-border text-foreground font-semibold px-8 py-3.5 rounded-xl hover:border-primary/40 hover:bg-primary/5 transition-all duration-300 text-sm"
+            className="group border border-border text-foreground font-semibold px-8 py-3.5 rounded-xl hover:border-primary/40 hover:bg-primary/5 backdrop-blur-sm transition-all duration-300 text-sm"
           >
             View Projects
           </a>
@@ -131,7 +143,7 @@ const HeroSection = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors z-10"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
