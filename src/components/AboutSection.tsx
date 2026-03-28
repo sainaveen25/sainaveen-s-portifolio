@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Zap, Globe, Shield, TrendingUp } from "lucide-react";
+import TiltCard from "./TiltCard";
 
 const stats = [
   { value: "7+", label: "Years Experience", icon: Zap },
@@ -37,15 +38,15 @@ const AboutSection = () => {
             className="lg:col-span-3 space-y-5"
           >
             <p className="text-muted-foreground text-lg leading-relaxed">
-              I'm a Full Stack Developer who thrives at the intersection of complex backend systems and 
-              intuitive user experiences. With deep expertise across Java, Spring Boot, Microservices, 
-              and modern frontend frameworks, I build enterprise applications that are not just functional — 
+              I'm a Full Stack Developer who thrives at the intersection of complex backend systems and
+              intuitive user experiences. With deep expertise across Java, Spring Boot, Microservices,
+              and modern frontend frameworks, I build enterprise applications that are not just functional —
               they're resilient, performant, and built to last.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              From architecting distributed banking systems at RBC Bank to leading cloud-native CRM 
-              transformations at Infosys, I've consistently delivered solutions that reduce costs, 
-              accelerate deployments, and empower teams. I'm passionate about clean architecture, 
+              From architecting distributed banking systems at RBC Bank to leading cloud-native CRM
+              transformations at Infosys, I've consistently delivered solutions that reduce costs,
+              accelerate deployments, and empower teams. I'm passionate about clean architecture,
               DevOps automation, and the craft of writing code that other developers enjoy working with.
             </p>
             <p className="text-muted-foreground leading-relaxed">
@@ -60,17 +61,14 @@ const AboutSection = () => {
             className="lg:col-span-2 grid grid-cols-2 gap-4"
           >
             {stats.map((stat, i) => (
-              <motion.div
+              <TiltCard
                 key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                 className="bento-card text-center group"
               >
                 <stat.icon className="text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" size={20} />
                 <p className="text-3xl font-bold text-gradient">{stat.value}</p>
                 <p className="text-xs text-muted-foreground mt-1.5">{stat.label}</p>
-              </motion.div>
+              </TiltCard>
             ))}
           </motion.div>
         </div>

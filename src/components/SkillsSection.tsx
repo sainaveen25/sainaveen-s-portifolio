@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Code2, Server, Layout, Cloud, Database, Lock, Wrench, TestTube, Workflow, Globe } from "lucide-react";
+import TiltCard from "./TiltCard";
 
 const skillCategories = [
   {
@@ -92,24 +93,25 @@ const SkillsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.06 }}
-              className="bento-card group"
             >
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
-                  <cat.icon className="text-primary" size={18} />
+              <TiltCard className="bento-card group h-full">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors duration-300">
+                    <cat.icon className="text-primary" size={18} />
+                  </div>
+                  <h3 className={`text-base font-semibold ${cat.gradient}`}>{cat.title}</h3>
                 </div>
-                <h3 className={`text-base font-semibold ${cat.gradient}`}>{cat.title}</h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-xs font-mono bg-secondary/80 text-secondary-foreground px-3 py-1.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-300"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
+                <div className="flex flex-wrap gap-2">
+                  {cat.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-xs font-mono bg-secondary/80 text-secondary-foreground px-3 py-1.5 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-300"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>
