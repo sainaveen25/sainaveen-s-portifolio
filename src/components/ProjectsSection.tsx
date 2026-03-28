@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Github, ArrowUpRight, Building2, ShoppingCart, Users, Rocket, Database, CheckSquare, Zap } from "lucide-react";
+import TiltCard from "./TiltCard";
 
 const projects = [
   {
@@ -88,42 +89,46 @@ const ProjectsSection = () => {
         {/* Featured projects */}
         <div className="grid md:grid-cols-2 gap-5 mb-5">
           {projects.filter(p => p.featured).map((project, i) => (
-            <motion.a
+            <motion.div
               key={i}
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bento-card group relative overflow-hidden cursor-pointer"
             >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[60px] group-hover:bg-primary/10 transition-all duration-500" />
-              <div className="relative">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <project.icon className="text-primary" size={16} />
+              <TiltCard
+                as="a"
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bento-card group cursor-pointer block h-full"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-[60px] group-hover:bg-primary/10 transition-all duration-500" />
+                <div className="relative">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <project.icon className="text-primary" size={16} />
+                      </div>
+                      <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-lg">Featured</span>
                     </div>
-                    <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-lg">Featured</span>
+                    <ArrowUpRight className="text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" size={18} />
                   </div>
-                  <ArrowUpRight className="text-muted-foreground group-hover:text-primary group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" size={18} />
+                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((t) => (
+                      <span key={t} className="text-xs font-mono bg-secondary/80 text-secondary-foreground px-2.5 py-1 rounded-lg">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-muted-foreground mb-5 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((t) => (
-                    <span key={t} className="text-xs font-mono bg-secondary/80 text-secondary-foreground px-2.5 py-1 rounded-lg">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.a>
+              </TiltCard>
+            </motion.div>
           ))}
         </div>
 
@@ -135,41 +140,42 @@ const ProjectsSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.08 }}
-              className="bento-card group flex flex-col"
             >
-              <div className="flex items-center gap-2 mb-3">
-                <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <project.icon className="text-primary" size={14} />
+              <TiltCard className="bento-card group flex flex-col h-full">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                    <project.icon className="text-primary" size={14} />
+                  </div>
+                  <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                    {project.title}
+                  </h3>
                 </div>
-                <h3 className="text-sm font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                  {project.title}
-                </h3>
-              </div>
-              <p className="text-xs text-muted-foreground mb-4 flex-1 leading-relaxed">
-                {project.description}
-              </p>
-              <div className="flex flex-wrap gap-1.5 mb-3">
-                {project.tech.slice(0, 4).map((t) => (
-                  <span key={t} className="text-[10px] font-mono bg-secondary/60 text-secondary-foreground px-2 py-0.5 rounded">
-                    {t}
-                  </span>
-                ))}
-                {project.tech.length > 4 && (
-                  <span className="text-[10px] font-mono text-muted-foreground">+{project.tech.length - 4}</span>
+                <p className="text-xs text-muted-foreground mb-4 flex-1 leading-relaxed">
+                  {project.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-3">
+                  {project.tech.slice(0, 4).map((t) => (
+                    <span key={t} className="text-[10px] font-mono bg-secondary/60 text-secondary-foreground px-2 py-0.5 rounded">
+                      {t}
+                    </span>
+                  ))}
+                  {project.tech.length > 4 && (
+                    <span className="text-[10px] font-mono text-muted-foreground">+{project.tech.length - 4}</span>
+                  )}
+                </div>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors mt-auto"
+                  >
+                    <Github size={12} />
+                    View on GitHub
+                    <ArrowUpRight size={10} />
+                  </a>
                 )}
-              </div>
-              {project.github && (
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors mt-auto"
-                >
-                  <Github size={12} />
-                  View on GitHub
-                  <ArrowUpRight size={10} />
-                </a>
-              )}
+              </TiltCard>
             </motion.div>
           ))}
         </div>

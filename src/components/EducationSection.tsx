@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, MapPin } from "lucide-react";
+import TiltCard from "./TiltCard";
 
 const education = [
   {
@@ -45,18 +46,19 @@ const EducationSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="bento-card group"
             >
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors duration-300">
-                <GraduationCap className="text-primary" size={22} />
-              </div>
-              <h3 className={`text-2xl font-bold ${edu.gradient}`}>{edu.degree}</h3>
-              <p className="text-foreground font-medium mt-2">{edu.school}</p>
-              <p className="text-sm text-muted-foreground mt-2">{edu.major}</p>
-              <div className="flex items-center gap-1.5 mt-3 text-xs text-muted-foreground">
-                <MapPin size={12} />
-                {edu.location}
-              </div>
+              <TiltCard className="bento-card group h-full">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors duration-300">
+                  <GraduationCap className="text-primary" size={22} />
+                </div>
+                <h3 className={`text-2xl font-bold ${edu.gradient}`}>{edu.degree}</h3>
+                <p className="text-foreground font-medium mt-2">{edu.school}</p>
+                <p className="text-sm text-muted-foreground mt-2">{edu.major}</p>
+                <div className="flex items-center gap-1.5 mt-3 text-xs text-muted-foreground">
+                  <MapPin size={12} />
+                  {edu.location}
+                </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

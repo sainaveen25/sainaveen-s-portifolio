@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import TiltCard from "./TiltCard";
 
 const experiences = [
   {
@@ -84,38 +85,39 @@ const ExperienceSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="bento-card group relative overflow-hidden"
             >
-              <div className={`absolute left-0 top-0 bottom-0 w-1 ${exp.accent === 'accent' ? 'bg-accent' : 'bg-primary'} opacity-60 rounded-l-2xl`} />
-              
-              <div className="pl-4">
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
-                    <p className="text-primary font-medium mt-0.5">{exp.company} <span className="text-muted-foreground font-normal">· {exp.location}</span></p>
-                  </div>
-                  <span className="text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-lg font-mono shrink-0">
-                    {exp.period}
-                  </span>
-                </div>
-                
-                <ul className="space-y-2 mb-5">
-                  {exp.highlights.map((h, j) => (
-                    <li key={j} className="text-sm text-muted-foreground flex gap-2.5 leading-relaxed">
-                      <span className="text-primary mt-1 shrink-0 text-xs">●</span>
-                      {h}
-                    </li>
-                  ))}
-                </ul>
-                
-                <div className="flex flex-wrap gap-2">
-                  {exp.tech.map((t) => (
-                    <span key={t} className="text-xs font-mono bg-secondary/80 text-secondary-foreground px-2.5 py-1 rounded-lg">
-                      {t}
+              <TiltCard className="bento-card group relative overflow-hidden">
+                <div className={`absolute left-0 top-0 bottom-0 w-1 ${exp.accent === 'accent' ? 'bg-accent' : 'bg-primary'} opacity-60 rounded-l-2xl`} />
+
+                <div className="pl-4">
+                  <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                    <div>
+                      <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
+                      <p className="text-primary font-medium mt-0.5">{exp.company} <span className="text-muted-foreground font-normal">· {exp.location}</span></p>
+                    </div>
+                    <span className="text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-lg font-mono shrink-0">
+                      {exp.period}
                     </span>
-                  ))}
+                  </div>
+
+                  <ul className="space-y-2 mb-5">
+                    {exp.highlights.map((h, j) => (
+                      <li key={j} className="text-sm text-muted-foreground flex gap-2.5 leading-relaxed">
+                        <span className="text-primary mt-1 shrink-0 text-xs">●</span>
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="flex flex-wrap gap-2">
+                    {exp.tech.map((t) => (
+                      <span key={t} className="text-xs font-mono bg-secondary/80 text-secondary-foreground px-2.5 py-1 rounded-lg">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </TiltCard>
             </motion.div>
           ))}
         </div>

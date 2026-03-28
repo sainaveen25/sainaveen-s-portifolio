@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { Mail, Phone, MapPin, Github, Linkedin, ArrowUpRight, Send, Loader2, CheckCircle } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "@/hooks/use-toast";
+import TiltCard from "./TiltCard";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -131,27 +132,27 @@ const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="space-y-4"
           >
-            <a href="mailto:sainaveen7691@gmail.com" onClick={handleMailClick} className="bento-card group flex items-center gap-4">
+            <TiltCard as="a" href="mailto:sainaveen7691@gmail.com" onClick={handleMailClick} className="bento-card group flex items-center gap-4">
               <Mail className="text-primary group-hover:scale-110 transition-transform duration-300 shrink-0" size={22} />
               <div>
                 <p className="text-sm font-medium text-foreground">Email</p>
                 <p className="text-xs text-muted-foreground">sainaveen7691@gmail.com</p>
               </div>
-            </a>
-            <a href="tel:+13528427691" className="bento-card group flex items-center gap-4">
+            </TiltCard>
+            <TiltCard as="a" href="tel:+13528427691" className="bento-card group flex items-center gap-4">
               <Phone className="text-primary group-hover:scale-110 transition-transform duration-300 shrink-0" size={22} />
               <div>
                 <p className="text-sm font-medium text-foreground">Phone</p>
                 <p className="text-xs text-muted-foreground">+1 (352) 842-7691</p>
               </div>
-            </a>
-            <div className="bento-card flex items-center gap-4">
+            </TiltCard>
+            <TiltCard className="bento-card flex items-center gap-4">
               <MapPin className="text-primary shrink-0" size={22} />
               <div>
                 <p className="text-sm font-medium text-foreground">Location</p>
                 <p className="text-xs text-muted-foreground">Tampa, FL</p>
               </div>
-            </div>
+            </TiltCard>
 
             <div className="flex flex-wrap gap-3 pt-2">
               <button
