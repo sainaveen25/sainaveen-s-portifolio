@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowDown, Sparkles } from "lucide-react";
+import TypeWriter from "./TypeWriter";
 
 const HeroSection = () => {
   const handleMailClick = (e: React.MouseEvent) => {
@@ -23,6 +24,15 @@ const HeroSection = () => {
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
       </div>
+
+      {/* Grid pattern overlay */}
+      <div
+        className="absolute inset-0 z-[1] opacity-[0.03]"
+        style={{
+          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
+          backgroundSize: "60px 60px",
+        }}
+      />
 
       {/* Animated orbs */}
       <motion.div
@@ -54,10 +64,37 @@ const HeroSection = () => {
           </motion.div>
 
           <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-8">
-            <span className="text-foreground">Sai</span>
+            <motion.span
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-foreground inline-block"
+            >
+              Sai
+            </motion.span>
             <br />
-            <span className="text-gradient">Naveen</span>
+            <motion.span
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="text-gradient inline-block"
+            >
+              Naveen
+            </motion.span>
           </h1>
+
+          {/* Typewriter role */}
+          <div className="text-xl md:text-2xl font-mono text-primary/80 mb-6 h-8">
+            <TypeWriter
+              words={[
+                "Full Stack Developer",
+                "Java & Spring Boot Expert",
+                "Cloud Architect",
+                "Microservices Engineer",
+                "React Developer",
+              ]}
+            />
+          </div>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed font-light">
             I don't just write code — I engineer systems that power{" "}
@@ -90,8 +127,10 @@ const HeroSection = () => {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group relative inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-xl hover:shadow-glow transition-all duration-300 text-sm"
+            className="group relative inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-xl hover:shadow-glow transition-all duration-300 text-sm overflow-hidden"
           >
+            {/* Shimmer effect */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             <Sparkles size={16} />
             Let's Work Together
           </a>

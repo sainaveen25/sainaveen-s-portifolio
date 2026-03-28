@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Zap, Globe, Shield, TrendingUp } from "lucide-react";
 import TiltCard from "./TiltCard";
+import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
   { value: "7+", label: "Years Experience", icon: Zap },
@@ -16,6 +17,9 @@ const AboutSection = () => {
 
   return (
     <section id="about" className="py-32 px-6 relative" ref={ref}>
+      {/* Decorative line */}
+      <div className="absolute left-1/2 top-0 w-px h-20 bg-gradient-to-b from-transparent to-primary/20" />
+
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -23,7 +27,14 @@ const AboutSection = () => {
           transition={{ duration: 0.7 }}
           className="mb-16"
         >
-          <span className="text-primary text-sm font-mono tracking-wider uppercase">About</span>
+          <motion.span
+            initial={{ opacity: 0, x: -20 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ delay: 0.2 }}
+            className="text-primary text-sm font-mono tracking-wider uppercase"
+          >
+            About
+          </motion.span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3 text-foreground leading-tight">
             Building software that<br />
             <span className="text-gradient">scales to millions</span>
@@ -66,7 +77,9 @@ const AboutSection = () => {
                 className="bento-card text-center group"
               >
                 <stat.icon className="text-primary mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" size={20} />
-                <p className="text-3xl font-bold text-gradient">{stat.value}</p>
+                <p className="text-3xl font-bold text-gradient">
+                  <AnimatedCounter target={stat.value} />
+                </p>
                 <p className="text-xs text-muted-foreground mt-1.5">{stat.label}</p>
               </TiltCard>
             ))}
