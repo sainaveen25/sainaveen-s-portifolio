@@ -64,7 +64,7 @@ const ExperienceSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-32 px-6" ref={ref}>
+    <section id="experience" className="py-32 px-6 relative" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -78,48 +78,71 @@ const ExperienceSection = () => {
           </h2>
         </motion.div>
 
-        <div className="space-y-6">
-          {experiences.map((exp, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.15 }}
-            >
-              <TiltCard className="bento-card group relative overflow-hidden">
-                <div className={`absolute left-0 top-0 bottom-0 w-1 ${exp.accent === 'accent' ? 'bg-accent' : 'bg-primary'} opacity-60 rounded-l-2xl`} />
+        {/* Timeline */}
+        <div className="relative">
+          {/* Vertical timeline line */}
+          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/40 via-accent/20 to-transparent hidden md:block" />
 
-                <div className="pl-4">
-                  <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
-                      <p className="text-primary font-medium mt-0.5">{exp.company} <span className="text-muted-foreground font-normal">· {exp.location}</span></p>
-                    </div>
-                    <span className="text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-lg font-mono shrink-0">
-                      {exp.period}
-                    </span>
-                  </div>
+          <div className="space-y-6">
+            {experiences.map((exp, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: i * 0.15 }}
+                className="md:pl-16 relative"
+              >
+                {/* Timeline dot */}
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={inView ? { scale: 1 } : {}}
+                  transition={{ delay: i * 0.15 + 0.3 }}
+                  className={`hidden md:block absolute left-[29px] top-8 w-3 h-3 rounded-full ${
+                    exp.accent === "accent" ? "bg-accent" : "bg-primary"
+                  } ring-4 ring-background z-10`}
+                />
 
-                  <ul className="space-y-2 mb-5">
-                    {exp.highlights.map((h, j) => (
-                      <li key={j} className="text-sm text-muted-foreground flex gap-2.5 leading-relaxed">
-                        <span className="text-primary mt-1 shrink-0 text-xs">●</span>
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
+                <TiltCard className="bento-card group relative overflow-hidden hover:shadow-glow transition-shadow duration-500">
+                  <div className={`absolute left-0 top-0 bottom-0 w-1 ${exp.accent === 'accent' ? 'bg-accent' : 'bg-primary'} opacity-60 rounded-l-2xl`} />
 
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tech.map((t) => (
-                      <span key={t} className="text-xs font-mono bg-secondary/80 text-secondary-foreground px-2.5 py-1 rounded-lg">
-                        {t}
+                  <div className="pl-4">
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
+                        <p className="text-primary font-medium mt-0.5">{exp.company} <span className="text-muted-foreground font-normal">· {exp.location}</span></p>
+                      </div>
+                      <span className="text-xs text-muted-foreground bg-secondary px-3 py-1.5 rounded-lg font-mono shrink-0">
+                        {exp.period}
                       </span>
-                    ))}
+                    </div>
+
+                    <ul className="space-y-2 mb-5">
+                      {exp.highlights.map((h, j) => (
+                        <motion.li
+                          key={j}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={inView ? { opacity: 1, x: 0 } : {}}
+                          transition={{ delay: i * 0.15 + j * 0.03 }}
+                          className="text-sm text-muted-foreground flex gap-2.5 leading-relaxed"
+                        >
+                          <span className="text-primary mt-1 shrink-0 text-xs">●</span>
+                          {h}
+                        </motion.li>
+                      ))}
+                    </ul>
+
+                    <div className="flex flex-wrap gap-2">
+                      {exp.tech.map((t) => (
+                        <span key={t} className="text-xs font-mono bg-secondary/80 text-secondary-foreground px-2.5 py-1 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors duration-200">
+                          {t}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              </TiltCard>
-            </motion.div>
-          ))}
+                </TiltCard>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

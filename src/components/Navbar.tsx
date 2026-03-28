@@ -13,9 +13,23 @@ const navLinks = [
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+
+      // Detect active section
+      const sections = navLinks.map((l) => l.href.slice(1));
+      let current = "";
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= 150) {
+          current = id;
+        }
+      }
+      setActiveSection(current);
+    };
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -34,15 +48,29 @@ const Navbar = () => {
           SN.
         </a>
         <div className="hidden md:flex items-center gap-1">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground px-3 py-2 rounded-lg hover:bg-secondary/50 transition-all duration-300"
-            >
-              {link.label}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.slice(1);
+            return (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`relative text-sm px-3 py-2 rounded-lg transition-all duration-300 ${
+                  isActive
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                }`}
+              >
+                {link.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="activeNav"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-primary rounded-full"
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                )}
+              </a>
+            );
+          })}
         </div>
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
@@ -71,7 +99,11 @@ const Navbar = () => {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block py-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className={`block py-2.5 text-sm transition-colors ${
+                    activeSection === link.href.slice(1)
+                      ? "text-primary font-medium"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
                 >
                   {link.label}
                 </a>
