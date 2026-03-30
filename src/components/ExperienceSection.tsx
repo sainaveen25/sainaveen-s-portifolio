@@ -9,16 +9,16 @@ const experiences = [
     period: "Nov 2024 – Present",
     location: "Remote (Contract)",
     highlights: [
-      "Architected secure, scalable banking microservices using Java 17, Spring Boot & Hibernate JPA for distributed financial systems",
-      "Migrated 15+ legacy services to modern Spring Boot architecture, boosting transactional throughput by 25%",
-      "Orchestrated Docker & Kubernetes containerization, cutting deployment cycle times by 30%",
-      "Directed React 18 & Angular 15 frontend development for high-traffic banking platforms with Redux Toolkit & TypeScript",
-      "Established Kafka event-driven messaging processing 500K+ daily transaction events",
-      "Implemented Spring Security, JWT & OAuth2 authentication ensuring 100% banking security compliance",
-      "Optimized PostgreSQL & Oracle schemas reducing query latency by 40% for high-volume workflows",
-      "Managed full-lifecycle CI/CD via Jenkins & GitHub Actions, cutting production failures by 45%",
-      "Leveraged AWS Lambda, S3 & EKS, reducing infrastructure costs by 22%",
-      "Deployed Terraform for infrastructure-as-code consistency across dev and prod environments",
+      "Built secure banking APIs using Java 17 and Spring Boot that handle day-to-day financial transactions",
+      "Moved 15+ older services to a modern Spring Boot setup, which made things about 25% faster",
+      "Set up Docker and Kubernetes for deployments — releases now take 30% less time",
+      "Built frontend dashboards with React 18 and Angular 15 using TypeScript",
+      "Set up Kafka messaging to handle 500K+ daily transaction events across the system",
+      "Added authentication with Spring Security, JWT, and OAuth2 to meet banking compliance requirements",
+      "Tuned PostgreSQL and Oracle queries to cut response times by 40% on high-traffic pages",
+      "Managed CI/CD pipelines with Jenkins and GitHub Actions, cutting production issues by 45%",
+      "Used AWS Lambda, S3, and EKS to bring down infrastructure costs by about 22%",
+      "Wrote Terraform configs to keep dev and prod environments consistent",
     ],
     tech: ["Java 17", "Spring Boot", "React 18", "Angular 15", "Kafka", "AWS EKS", "PostgreSQL", "MongoDB", "Docker", "K8s", "Terraform"],
     accent: "primary",
@@ -29,14 +29,14 @@ const experiences = [
     period: "Jul 2021 – Aug 2023",
     location: "India",
     highlights: [
-      "Led CRM monolith-to-microservices transformation using Java 11, Spring Boot 2.x & Spring MVC",
-      "Delivered 20+ RESTful APIs supporting 50K daily active users with secure RBAC & JWT authentication",
-      "Improved Angular 8 dashboard load times by 35% through RxJS reactive programming patterns",
-      "Directed AWS cloud migration achieving 99.99% system availability for mission-critical applications",
-      "Automated CI/CD pipelines with Jenkins & GitLab CI, reducing manual deployment by 50%",
-      "Orchestrated real-time data processing using Apache Kafka for notification streams & data sync",
-      "Designed ELK Stack & CloudWatch monitoring dashboards reducing MTTR by 20 minutes",
-      "Managed containerized deployments using Docker & AWS ECS with CloudFormation provisioning",
+      "Led the effort to break down a large CRM app into smaller, independent services using Java 11 and Spring Boot",
+      "Built 20+ REST APIs that serve 50K users daily, with proper authentication and role-based access",
+      "Made the Angular dashboard load 35% faster by using better data-fetching patterns with RxJS",
+      "Helped move the system to AWS, reaching 99.99% uptime for the most important services",
+      "Automated deployments with Jenkins and GitLab CI — cut manual work in half",
+      "Used Kafka for real-time notifications and keeping data in sync across services",
+      "Built monitoring dashboards with ELK Stack and CloudWatch to catch issues faster",
+      "Managed containerized apps on AWS ECS with CloudFormation for infrastructure setup",
     ],
     tech: ["Java 11", "Spring Boot", "Angular 8", "RxJS", "PostgreSQL", "Kafka", "AWS ECS", "Docker", "Jenkins", "ELK Stack"],
     accent: "accent",
@@ -47,12 +47,12 @@ const experiences = [
     period: "Jul 2018 – Jul 2021",
     location: "India",
     highlights: [
-      "Built backend modules using Core Java, JSP & Servlets for automated order tracking & inventory management",
-      "Developed REST & SOAP APIs with 99% data accuracy for third-party shipment tracking integrations",
-      "Spearheaded CI/CD pipelines with Jenkins & Docker, reducing release cycles by 30%",
-      "Designed & optimized MySQL schemas, improving data retrieval times by 25%",
-      "Implemented Multithreading & Spring MVC controllers for efficient web request handling",
-      "Achieved 80% code coverage through JUnit testing across primary application suite",
+      "Built backend features using Core Java, JSP, and Servlets for order tracking and inventory management",
+      "Developed REST and SOAP APIs with 99% data accuracy for shipment tracking integrations",
+      "Set up CI/CD with Jenkins and Docker, making releases 30% faster",
+      "Designed and optimized MySQL database schemas, improving data retrieval by 25%",
+      "Used Multithreading and Spring MVC to handle web requests more efficiently",
+      "Wrote JUnit tests to cover 80% of the main application code",
     ],
     tech: ["Java 8", "Spring MVC", "Hibernate", "MySQL", "REST APIs", "SOAP", "Jenkins", "Docker", "JUnit", "Apache Tomcat"],
     accent: "primary",
@@ -64,7 +64,7 @@ const ExperienceSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-32 px-6 relative" ref={ref}>
+    <section id="experience" className="py-20 sm:py-32 px-4 sm:px-6 relative" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -73,7 +73,7 @@ const ExperienceSection = () => {
           className="mb-16"
         >
           <span className="text-primary text-sm font-mono tracking-wider uppercase">Career</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3 text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 text-foreground">
             Work <span className="text-gradient">Experience</span>
           </h2>
         </motion.div>

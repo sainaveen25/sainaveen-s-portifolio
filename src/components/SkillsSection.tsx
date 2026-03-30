@@ -71,7 +71,7 @@ const SkillsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" className="py-32 px-6 relative" ref={ref}>
+    <section id="skills" className="py-20 sm:py-32 px-4 sm:px-6 relative" ref={ref}>
       <div className="absolute inset-0 bg-mesh opacity-50" />
       {/* Decorative grid pattern */}
       <div
@@ -89,7 +89,7 @@ const SkillsSection = () => {
           className="mb-16"
         >
           <span className="text-primary text-sm font-mono tracking-wider uppercase">Tech Stack</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3 text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 text-foreground">
             Skills & <span className="text-gradient">Technologies</span>
           </h2>
         </motion.div>

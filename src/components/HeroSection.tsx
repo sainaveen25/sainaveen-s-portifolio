@@ -1,6 +1,5 @@
-import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowDown, Sparkles } from "lucide-react";
-import TypeWriter from "./TypeWriter";
+import RotatingTechStack from "./RotatingTechStack";
 
 const HeroSection = () => {
   const handleMailClick = (e: React.MouseEvent) => {
@@ -9,14 +8,15 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
-      {/* Video background */}
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 sm:px-6">
+      {/* Video background — optimized with preload metadata + reduced brightness */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
           loop
           muted
           playsInline
+          preload="metadata"
           className="w-full h-full object-cover"
           style={{ filter: "brightness(0.3) saturate(1.2)" }}
         >
@@ -34,102 +34,60 @@ const HeroSection = () => {
         }}
       />
 
-      {/* Animated orbs */}
-      <motion.div
-        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px] z-[1]"
-      />
-      <motion.div
-        animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[130px] z-[1]"
-      />
+      {/* CSS animated orbs — hidden on small screens for performance */}
+      <div className="hidden sm:block absolute top-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[150px] z-[1] orb-pulse" />
+      <div className="hidden sm:block absolute bottom-1/3 left-1/4 w-[400px] h-[400px] rounded-full bg-accent/5 blur-[130px] z-[1] orb-pulse-alt" />
 
-      <div className="max-w-5xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-        >
+      <div className="max-w-5xl mx-auto text-center relative z-10 pt-16 sm:pt-0">
+        <div className="hero-fade-in">
           {/* Status badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-8"
-          >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
-            <span className="text-sm text-primary font-medium">Available for opportunities</span>
-          </motion.div>
-
-          <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-8">
-            <motion.span
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-foreground inline-block"
-            >
-              Sai
-            </motion.span>
-            <br />
-            <motion.span
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="text-gradient inline-block"
-            >
-              Naveen
-            </motion.span>
-          </h1>
-
-          {/* Typewriter role */}
-          <div className="text-xl md:text-2xl font-mono text-primary/80 mb-6 h-8">
-            <TypeWriter
-              words={[
-                "Full Stack Developer",
-                "Java & Spring Boot Expert",
-                "Cloud Architect",
-                "Microservices Engineer",
-                "React Developer",
-              ]}
-            />
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full border border-primary/20 bg-primary/5 backdrop-blur-sm mb-6 sm:mb-8 hero-fade-in-delay-1">
+            <span className="w-2 h-2 rounded-full bg-primary pulse-glow" />
+            <span className="text-xs sm:text-sm text-primary font-medium">Available for opportunities</span>
           </div>
 
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed font-light">
-            I don't just write code — I engineer systems that power{" "}
-            <span className="text-foreground font-medium">real-world enterprises</span>.
-            From banking platforms handling half a million daily transactions to cloud-native
-            architectures that never sleep.
+          <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-bold leading-[0.9] tracking-tight mb-4 sm:mb-6">
+            <span className="text-foreground inline-block hero-slide-right">
+              Sai
+            </span>
+            <br />
+            <span className="text-gradient inline-block hero-slide-left">
+              Naveen
+            </span>
+          </h1>
+
+          {/* Single 3D Rotating Line */}
+          <div className="mb-6 sm:mb-8 hero-fade-in-delay-2">
+            <RotatingTechStack />
+          </div>
+
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-3 sm:mb-4 leading-relaxed font-light px-2">
+            I build the backend systems and web apps that keep businesses running.
+            Banking platforms, cloud migrations, internal tools — if it needs to be{" "}
+            <span className="text-foreground font-medium">reliable and fast</span>, I've probably built something like it.
           </p>
-          <p className="text-base text-muted-foreground max-w-xl mx-auto mb-6 leading-relaxed">
-            <span className="text-foreground font-medium">7+ years</span> deep in Java, Spring Boot, React & AWS —
-            turning complex problems into elegant, scalable solutions.
+          <p className="text-sm sm:text-base text-muted-foreground max-w-xl mx-auto mb-5 sm:mb-6 leading-relaxed">
+            <span className="text-foreground font-medium">7+ years</span> working with Java, Spring Boot, React, and AWS.
+            Currently based in Tampa, FL.
           </p>
 
-          <div className="flex items-center justify-center gap-1.5 text-sm text-muted-foreground mb-12">
+          <div className="flex items-center justify-center gap-1.5 text-xs sm:text-sm text-muted-foreground mb-8 sm:mb-12">
             <span className="w-1.5 h-1.5 rounded-full bg-primary/60" />
             <span>Tampa, FL</span>
             <span className="mx-2 text-border">·</span>
             <span>Open to Relocation</span>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-12"
-        >
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 mb-8 sm:mb-12 hero-fade-in-delay-3">
           <a
             href="#contact"
             onClick={(e) => {
               e.preventDefault();
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group relative inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-semibold px-8 py-3.5 rounded-xl hover:shadow-glow transition-all duration-300 text-sm overflow-hidden"
+            className="group relative inline-flex items-center gap-2 bg-gradient-primary text-primary-foreground font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl hover:shadow-glow transition-all duration-300 text-sm overflow-hidden"
           >
-            {/* Shimmer effect */}
             <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             <Sparkles size={16} />
             Let's Work Together
@@ -140,18 +98,13 @@ const HeroSection = () => {
               e.preventDefault();
               document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
             }}
-            className="group border border-border text-foreground font-semibold px-8 py-3.5 rounded-xl hover:border-primary/40 hover:bg-primary/5 backdrop-blur-sm transition-all duration-300 text-sm"
+            className="group border border-border text-foreground font-semibold px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl hover:border-primary/40 hover:bg-primary/5 backdrop-blur-sm transition-all duration-300 text-sm"
           >
             View Projects
           </a>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex items-center justify-center gap-5"
-        >
+        <div className="flex items-center justify-center gap-5 hero-fade-in-delay-4">
           {[
             { icon: Github, href: "https://github.com/sainaveen25", label: "GitHub" },
             { icon: Linkedin, href: "https://www.linkedin.com/in/s-sainaveen", label: "LinkedIn" },
@@ -169,28 +122,22 @@ const HeroSection = () => {
               <span className="text-sm hidden sm:inline">{label}</span>
             </a>
           ))}
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
-      <motion.a
+      <a
         href="#about"
         onClick={(e) => {
           e.preventDefault();
           document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
         }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors z-10 hero-fade-in-delay-4"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-        >
+        <div className="scroll-bounce">
           <ArrowDown size={20} />
-        </motion.div>
-      </motion.a>
+        </div>
+      </a>
     </section>
   );
 };

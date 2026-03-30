@@ -45,7 +45,7 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="py-32 px-6 relative" ref={ref}>
+    <section id="contact" className="py-20 sm:py-32 px-4 sm:px-6 relative" ref={ref}>
       <div className="absolute inset-0 bg-mesh opacity-40" />
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
@@ -55,12 +55,12 @@ const ContactSection = () => {
           className="text-center"
         >
           <span className="text-primary text-sm font-mono tracking-wider uppercase">Contact</span>
-          <h2 className="text-4xl md:text-6xl font-bold mt-3 text-foreground mb-5">
-            Let's build<br />
-            <span className="text-gradient">something great</span>
+          <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold mt-3 text-foreground mb-5">
+            Let's work<br />
+            <span className="text-gradient">together</span>
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto mb-14 text-lg">
-            Currently open to new opportunities. Whether you have a project in mind or just want to connect — let's talk.
+            I'm open to new opportunities — whether it's a full-time role, a contract, or just a conversation. Drop me a message.
           </p>
         </motion.div>
 

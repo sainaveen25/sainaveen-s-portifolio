@@ -13,6 +13,7 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
+  base: process.env.GITHUB_ACTIONS ? "/sainaveen-s-portifolio/" : "/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

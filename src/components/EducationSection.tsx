@@ -25,7 +25,7 @@ const EducationSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="education" className="py-32 px-6" ref={ref}>
+    <section id="education" className="py-20 sm:py-32 px-4 sm:px-6" ref={ref}>
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -34,7 +34,7 @@ const EducationSection = () => {
           className="mb-16"
         >
           <span className="text-primary text-sm font-mono tracking-wider uppercase">Education</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3 text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 text-foreground">
             Academic <span className="text-gradient">Background</span>
           </h2>
         </motion.div>

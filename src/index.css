@@ -1,8 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -10,58 +10,58 @@ html {
 
 @layer base {
   :root {
-    --background: 240 6% 6%;
-    --foreground: 0 0% 96%;
+    --background: 220 20% 6%;
+    --foreground: 0 0% 98%;
 
-    --card: 240 5% 9%;
-    --card-foreground: 0 0% 96%;
+    --card: 220 20% 8%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 240 5% 9%;
-    --popover-foreground: 0 0% 96%;
+    --popover: 220 20% 8%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 150 100% 60%;
-    --primary-foreground: 240 6% 6%;
+    --primary: 40 95% 55%;
+    --primary-foreground: 220 20% 8%;
 
-    --secondary: 240 4% 14%;
-    --secondary-foreground: 0 0% 76%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 0 0% 80%;
 
-    --muted: 240 4% 14%;
-    --muted-foreground: 240 5% 50%;
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 60%;
 
-    --accent: 280 80% 65%;
-    --accent-foreground: 0 0% 96%;
+    --accent: 20 95% 55%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 4% 16%;
-    --input: 240 4% 16%;
-    --ring: 150 100% 60%;
+    --border: 220 15% 14%;
+    --input: 220 15% 14%;
+    --ring: 40 95% 55%;
 
     --radius: 1rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(150 100% 60%), hsl(180 100% 50%));
-    --gradient-accent: linear-gradient(135deg, hsl(280 80% 65%), hsl(320 80% 60%));
-    --gradient-warm: linear-gradient(135deg, hsl(40 100% 60%), hsl(20 100% 55%));
-    --gradient-card: linear-gradient(145deg, hsl(240 5% 10%), hsl(240 5% 7%));
-    --gradient-mesh: radial-gradient(at 40% 20%, hsl(150 100% 60% / 0.08) 0px, transparent 50%),
-                     radial-gradient(at 80% 0%, hsl(280 80% 65% / 0.06) 0px, transparent 50%),
-                     radial-gradient(at 0% 50%, hsl(180 100% 50% / 0.05) 0px, transparent 50%);
-    --shadow-glow: 0 0 40px hsl(150 100% 60% / 0.12);
-    --shadow-card: 0 2px 40px hsl(0 0% 0% / 0.4);
-    --shadow-elevated: 0 8px 60px hsl(0 0% 0% / 0.5);
+    --gradient-primary: linear-gradient(135deg, hsl(40 95% 55%), hsl(30 100% 50%));
+    --gradient-accent: linear-gradient(135deg, hsl(20 95% 55%), hsl(10 100% 55%));
+    --gradient-warm: linear-gradient(135deg, hsl(45 100% 60%), hsl(25 100% 55%));
+    --gradient-card: linear-gradient(145deg, hsl(220 20% 10%), hsl(220 20% 7%));
+    --gradient-mesh: radial-gradient(at 40% 20%, hsl(40 95% 55% / 0.08) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(20 95% 55% / 0.08) 0px, transparent 50%),
+                     radial-gradient(at 0% 50%, hsl(50 100% 50% / 0.05) 0px, transparent 50%);
+    --shadow-glow: 0 0 40px hsl(40 95% 55% / 0.15);
+    --shadow-card: 0 2px 40px hsl(0 0% 0% / 0.5);
+    --shadow-elevated: 0 8px 60px hsl(0 0% 0% / 0.6);
 
     --font-display: 'Space Grotesk', sans-serif;
     --font-mono: 'Space Mono', monospace;
 
-    --sidebar-background: 240 5% 9%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 150 100% 60%;
-    --sidebar-primary-foreground: 240 6% 6%;
-    --sidebar-accent: 240 4% 14%;
-    --sidebar-accent-foreground: 0 0% 76%;
-    --sidebar-border: 240 4% 16%;
-    --sidebar-ring: 150 100% 60%;
+    --sidebar-background: 220 20% 8%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 40 95% 55%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: 220 15% 15%;
+    --sidebar-accent-foreground: 0 0% 80%;
+    --sidebar-border: 220 15% 14%;
+    --sidebar-ring: 40 95% 55%;
   }
 }
 
@@ -123,10 +123,10 @@ html {
     box-shadow: var(--shadow-elevated);
   }
   .border-glow {
-    border: 1px solid hsl(150 100% 60% / 0.15);
+    border: 1px solid hsl(40 95% 55% / 0.2);
   }
   .glass {
-    background: hsl(240 5% 9% / 0.6);
+    background: hsl(220 20% 8% / 0.6);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
   }
@@ -135,12 +135,8 @@ html {
     background: var(--gradient-card);
   }
   .bento-card:hover {
-    border-color: hsl(150 100% 60% / 0.2);
-    box-shadow: 0 0 0 1px hsl(150 100% 60% / 0.05), 0 4px 40px hsl(0 0% 0% / 0.3);
-  }
-  @keyframes border-rotate {
-    from { --angle: 0deg; }
-    to { --angle: 360deg; }
+    border-color: hsl(40 95% 55% / 0.3);
+    box-shadow: 0 0 0 1px hsl(40 95% 55% / 0.1), 0 4px 40px hsl(0 0% 0% / 0.4);
   }
   .noise {
     position: relative;
@@ -155,10 +151,192 @@ html {
   }
 }
 
-html {
-  scroll-behavior: smooth;
+/* ===== PERFORMANCE-OPTIMIZED ANIMATIONS ===== */
+
+/* Cursor blink for TypeWriter */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
+/* Floating particles - CSS only */
+@keyframes float-particle {
+  0%, 100% { transform: translate(0, 0); opacity: 0.15; }
+  25% { transform: translate(12px, -25px); opacity: 0.4; }
+  50% { transform: translate(-10px, -15px); opacity: 0.25; }
+  75% { transform: translate(8px, 20px); opacity: 0.45; }
+}
+.floating-particle {
+  animation: float-particle linear infinite;
+  will-change: transform, opacity;
+}
+
+/* Spinning geometric shape */
+@keyframes spin-slow {
+  from { transform: rotate(45deg); }
+  to { transform: rotate(405deg); }
+}
+.spinning-shape {
+  animation: spin-slow 25s linear infinite;
+  will-change: transform;
+}
+
+/* Hero gradient background */
+.hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%, hsl(40 95% 55% / 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 20% 60%, hsl(20 95% 55% / 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 40% at 80% 30%, hsl(30 100% 50% / 0.05) 0%, transparent 60%),
+    hsl(var(--background));
+}
+
+/* Orb pulsing - CSS only */
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.15); opacity: 0.6; }
+}
+@keyframes orb-pulse-alt {
+  0%, 100% { transform: scale(1.15); opacity: 0.3; }
+  50% { transform: scale(1); opacity: 0.5; }
+}
+.orb-pulse {
+  animation: orb-pulse 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+.orb-pulse-alt {
+  animation: orb-pulse-alt 10s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Pulse glow for status dot */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(40 95% 55% / 0.5); }
+  50% { box-shadow: 0 0 0 6px hsl(40 95% 55% / 0); }
+}
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Hero entrance animations - CSS only, no framer-motion */
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-slide-right {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes hero-slide-left {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.hero-fade-in {
+  animation: hero-fade-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.hero-fade-in-delay-1 {
+  animation: hero-fade-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+}
+.hero-fade-in-delay-2 {
+  animation: hero-fade-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.3s both;
+}
+.hero-fade-in-delay-3 {
+  animation: hero-fade-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.45s both;
+}
+.hero-fade-in-delay-4 {
+  animation: hero-fade-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.6s both;
+}
+.hero-slide-right {
+  animation: hero-slide-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+.hero-slide-left {
+  animation: hero-slide-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.35s both;
+}
+
+/* Navbar slide down */
+@keyframes nav-slide-down {
+  from { transform: translateY(-80px); }
+  to { transform: translateY(0); }
+}
+.nav-slide-down {
+  animation: nav-slide-down 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Scroll bounce arrow */
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+.scroll-bounce {
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+/* 3D Rotating Tech Stack */
+.rotating-stack-wrapper {
+  perspective: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  overflow: hidden;
+}
+.rotating-stack-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rotating-stack-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.rotating-stack-text {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+@media (min-width: 768px) {
+  .rotating-stack-text {
+    font-size: 1.5rem;
+  }
+}
+
+/* 3D rotation animations */
+@keyframes rotate-in-3d {
+  from {
+    transform: rotateX(90deg) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes rotate-out-3d {
+  from {
+    transform: rotateX(0deg) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: rotateX(-90deg) scale(0.8);
+    opacity: 0;
+  }
+}
+.rotating-in {
+  animation: rotate-in-3d 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+.rotating-out {
+  animation: rotate-out-3d 0.4s cubic-bezier(0.55, 0, 1, 0.45) both;
+}
+
+/* ===== SCROLLBAR ===== */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -166,14 +344,20 @@ html {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(150 100% 60% / 0.2);
+  background: hsl(40 95% 55% / 0.3);
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: hsl(150 100% 60% / 0.4);
+  background: hsl(40 95% 55% / 0.5);
 }
 
 ::selection {
-  background: hsl(150 100% 60% / 0.2);
-  color: hsl(0 0% 96%);
+  background: hsl(40 95% 55% / 0.3);
+  color: hsl(0 0% 98%);
+}
+
+/* GPU acceleration hints for animated elements */
+.bento-card,
+.glass {
+  will-change: auto;
 }

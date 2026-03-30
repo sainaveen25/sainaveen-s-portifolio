@@ -6,7 +6,7 @@ import AnimatedCounter from "./AnimatedCounter";
 
 const stats = [
   { value: "7+", label: "Years Experience", icon: Zap },
-  { value: "20+", label: "APIs Delivered", icon: Globe },
+  { value: "20+", label: "APIs Built", icon: Globe },
   { value: "15+", label: "Services Migrated", icon: TrendingUp },
   { value: "95%", label: "Test Coverage", icon: Shield },
 ];
@@ -16,7 +16,7 @@ const AboutSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="py-32 px-6 relative" ref={ref}>
+    <section id="about" className="py-20 sm:py-32 px-4 sm:px-6 relative" ref={ref}>
       {/* Decorative line */}
       <div className="absolute left-1/2 top-0 w-px h-20 bg-gradient-to-b from-transparent to-primary/20" />
 
@@ -35,9 +35,9 @@ const AboutSection = () => {
           >
             About
           </motion.span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3 text-foreground leading-tight">
-            Building software that<br />
-            <span className="text-gradient">scales to millions</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 text-foreground leading-tight">
+            Software that works<br />
+            <span className="text-gradient">at any scale</span>
           </h2>
         </motion.div>
 
@@ -49,16 +49,15 @@ const AboutSection = () => {
             className="lg:col-span-3 space-y-5"
           >
             <p className="text-muted-foreground text-lg leading-relaxed">
-              I'm a Full Stack Developer who thrives at the intersection of complex backend systems and
-              intuitive user experiences. With deep expertise across Java, Spring Boot, Microservices,
-              and modern frontend frameworks, I build enterprise applications that are not just functional —
-              they're resilient, performant, and built to last.
+              I'm a full stack developer who enjoys working across the entire stack — from setting up
+              databases and writing APIs to building the UI that people actually use. Most of my work
+              has been with Java and Spring Boot on the backend, and React or Angular on the frontend.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              From architecting distributed banking systems at RBC Bank to leading cloud-native CRM
-              transformations at Infosys, I've consistently delivered solutions that reduce costs,
-              accelerate deployments, and empower teams. I'm passionate about clean architecture,
-              DevOps automation, and the craft of writing code that other developers enjoy working with.
+              Over the past 7 years, I've worked at places like RBC Bank and Infosys, where I helped
+              move older systems to modern setups, built APIs that handle real traffic, and set up
+              cloud infrastructure on AWS. I care about writing clean code and making sure things
+              actually work in production, not just in demos.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               Master's in Computer System Analysis from University of South Florida · B.Tech from SRM Institute · Based in Tampa, FL

@@ -7,33 +7,33 @@ const projects = [
   {
     title: "Banking Microservices Platform",
     description:
-      "Architected and deployed enterprise-grade banking microservices handling 500K+ daily transactions with event-driven Kafka messaging, containerized deployments on AWS EKS, and zero-downtime releases through Terraform IaC.",
+      "A set of backend services that process 500K+ transactions daily for a banking client. Built with event-driven messaging, containerized deployments on AWS, and zero-downtime releases.",
     tech: ["Java 17", "Spring Boot", "Kafka", "AWS EKS", "PostgreSQL", "Docker", "Kubernetes", "Terraform", "React 18"],
     icon: Building2,
     github: "https://github.com/sainaveen25",
     featured: true,
   },
   {
-    title: "E-Commerce Full Stack Application",
+    title: "E-Commerce Full Stack App",
     description:
-      "Scalable e-commerce platform with product catalog, order management, payment processing, and real-time inventory tracking — built with microservices architecture, Redis caching, and React 18 frontend with Redux state management.",
+      "An online store with product catalog, checkout, payments, and live inventory tracking. Uses caching for speed and a clean React frontend for the shopping experience.",
     tech: ["Java 11", "Spring Boot", "React 18", "Redux Toolkit", "PostgreSQL", "Redis", "REST APIs", "Docker", "AWS"],
     icon: ShoppingCart,
     github: "https://github.com/sainaveen25",
     featured: true,
   },
   {
-    title: "CRM Modernization Suite",
+    title: "CRM System Modernization",
     description:
-      "Led monolith-to-microservices transformation of enterprise CRM supporting 50K daily active users. Delivered 20+ RESTful APIs, reactive Angular dashboards with 35% faster load times, and 99.99% system availability on AWS.",
+      "Took a large, single CRM application and broke it into smaller services. Built 20+ APIs, added faster dashboards, and got the system to 99.99% uptime on AWS.",
     tech: ["Java 11", "Spring Boot", "Angular 8", "RxJS", "PostgreSQL", "Kafka", "AWS ECS", "Jenkins"],
     icon: Users,
     featured: false,
   },
   {
-    title: "CI/CD & Deployment Automation",
+    title: "CI/CD & Deployment Setup",
     description:
-      "End-to-end CI/CD pipelines with Jenkins, GitHub Actions, Docker containerization, and Kubernetes orchestration — achieving 45% fewer production failures and 30% faster release cycles through infrastructure-as-code.",
+      "End-to-end deployment pipelines with Jenkins, GitHub Actions, and Docker. Automated the entire release process from code push to production, cutting failures by 45%.",
     tech: ["Jenkins", "GitHub Actions", "Docker", "Kubernetes", "Terraform", "SonarQube", "AWS CloudFormation"],
     icon: Rocket,
     featured: false,
@@ -41,7 +41,7 @@ const projects = [
   {
     title: "Real-Time Data Pipeline",
     description:
-      "High-volume event streaming pipeline using Apache Kafka for real-time transaction processing, notification delivery, and data synchronization across distributed banking systems with ELK Stack monitoring.",
+      "A streaming pipeline using Kafka to process transactions in real time, send notifications, and keep data in sync across different banking systems.",
     tech: ["Apache Kafka", "Spring Cloud", "AWS Lambda", "ELK Stack", "Prometheus", "Grafana"],
     icon: Database,
     featured: false,
@@ -49,7 +49,7 @@ const projects = [
   {
     title: "Task Management App",
     description:
-      "Full-stack task management application with role-based access control (RBAC), JWT authentication, responsive Angular UI, and NestJS backend with TypeORM for team collaboration.",
+      "A full-stack to-do and project management app with user roles, login system, and a clean UI for team collaboration.",
     tech: ["NestJS", "Angular", "TypeORM", "JWT", "RBAC", "TypeScript"],
     icon: CheckSquare,
     github: "https://github.com/sainaveen25/Full-stack-Task-management-application",
@@ -58,7 +58,7 @@ const projects = [
   {
     title: "Electric Vehicles Website",
     description:
-      "Interactive web application showcasing electric vehicle data with clean UI, responsive layouts, and dynamic content rendering for an engaging user experience.",
+      "A responsive website showcasing electric vehicle data with interactive layouts and clean design.",
     tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     icon: Zap,
     github: "https://github.com/sainaveen25/-Electric-Vehicles-website",
@@ -71,7 +71,7 @@ const ProjectsSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-32 px-6 relative" ref={ref}>
+    <section id="projects" className="py-20 sm:py-32 px-4 sm:px-6 relative" ref={ref}>
       <div className="absolute inset-0 bg-mesh opacity-30" />
       <div className="max-w-6xl mx-auto relative z-10">
         <motion.div
@@ -81,8 +81,8 @@ const ProjectsSection = () => {
           className="mb-16"
         >
           <span className="text-primary text-sm font-mono tracking-wider uppercase">Portfolio</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3 text-foreground">
-            Featured <span className="text-gradient">Projects</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 text-foreground">
+            Things I've <span className="text-gradient">Built</span>
           </h2>
         </motion.div>
 
@@ -193,7 +193,7 @@ const ProjectsSection = () => {
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors duration-300 group"
           >
             <Github size={16} />
-            View all projects on GitHub
+            See more on GitHub
             <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
         </motion.div>
