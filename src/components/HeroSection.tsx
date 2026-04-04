@@ -20,7 +20,7 @@ const HeroSection = () => {
           className="w-full h-full object-cover"
           style={{ filter: "brightness(0.3) saturate(1.2)" }}
         >
-          <source src="/videos/hero-bg.mp4" type="video/mp4" />
+          <source src={`${import.meta.env.BASE_URL}videos/hero-bg.mp4`} type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background" />
       </div>
