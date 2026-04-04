@@ -2,7 +2,7 @@
 
 A high-performance, responsive personal portfolio built to showcase my 7+ years of experience in enterprise software development. This site features a modern dark-themed UI with 3D animations, smooth scrolling, and a real-time contact form.
 
-🔗 **Live**: [sainaveen-s-portifolio.vercel.app](https://sainaveen-s-portifolio.vercel.app) *(update with your live URL)*
+🔗 **Live**: https://sainaveen25.github.io/sainaveen-s-portifolio/ 
 
 ---
 
